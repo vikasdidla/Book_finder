@@ -8,7 +8,7 @@ const Main=()=>{
     const [booksData ,setBookData]=useState([]);
     const searchBook= (event)=>{
             axios.get('https://www.googleapis.com/books/v1/volumes?q='+search+'&key=AIzaSyAp4gz8JG7o-whbvGVvVyCflvD3B7ZGoN8'+'&maxResults=40')
-            .then(res=>setBookData(res.data.items))
+            .then(res=>setBookData(res.data.items || []))
             .catch(err=>console.log(err))
     }
     return(
